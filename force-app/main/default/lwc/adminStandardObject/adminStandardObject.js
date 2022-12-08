@@ -1,16 +1,14 @@
 import { LightningElement,track } from 'lwc';
-import ADMINPROFILEPIC from '@salesforce/resourceUrl/AdminProfilePic';
+import PICTUREZIPLOC from '@salesforce/resourceUrl/AdminStandardObjectPic';
 
 export default class ModalPopupLWC extends LightningElement {
     //Boolean tracked variable to indicate if modal is open or not default value is false as modal is closed when page is loaded 
     @track isModalOpen = false;
 
-    listPict = ADMINPROFILEPIC + '/List.png';
-    locationPict = ADMINPROFILEPIC+ '/Location.png';
-    
-    buttonName = 'Profiles'
-    titleLink = 'https://www.kicksaw.com/blog/salesforce-101-roles-vs-profiles'
-    
+    buttonName = 'Standard Objects'
+    titleLink = '';
+    pic1 = PICTUREZIPLOC + '/Properties.png';
+
     openModal() {
         // to open modal set isModalOpen tarck value as true
         this.isModalOpen = true;

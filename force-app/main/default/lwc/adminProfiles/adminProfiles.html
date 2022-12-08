@@ -1,0 +1,65 @@
+<template>
+   <!-- lightning button for open modal window -->
+   <lightning-button variant="Neutral"
+      label="Profiles"
+      title="Profiles"
+      onclick={openModal}
+      class="slds-m-left_x-small">
+   </lightning-button>
+
+   <!--Use template if:true to display/hide popup based on isModalOpen value--> 
+   <template if:true={isModalOpen}>
+       <!-- Modal/Popup Box LWC starts here -->
+       <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+           <div class="slds-modal__container">
+               <!-- Modal/Popup Box LWC header here -->
+               <header class="slds-modal__header">
+                   <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                       <lightning-icon icon-name="utility:close"
+                           alternative-text="close"
+                           variant="inverse"
+                           size="small" ></lightning-icon>
+                       <span class="slds-assistive-text">Close</span>
+                   </button>
+                   <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><a href="https://www.kicksaw.com/blog/salesforce-101-roles-vs-profiles">Profiles</a></h2>
+               </header>
+               <!-- Modal/Popup Box LWC body starts here -->
+               <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                  <p>
+                     <br>
+                     <b>Profiles define how users access objects and data and what they can do within the application.</b>
+                     <br>
+                     Typically, a user's profile is set to something such as Sales or HR or System Administrator.
+                     This will determine what they have access to within the system. Can the user view the setup screen?
+                     Can they create/edit apex or sandboxes? Can a user modify change sets or create users?
+                     Can the user view/edit/delete a given object? The answers to those questions is determined by the profile the user is assigned to.
+                     <br>
+                     <br>
+                  </p>
+                  <ul class="slds-list_dotted">
+                     <li><b>Page Layouts Access</b></li>
+                     <li><b>Field-Level Security</b></li>
+                     <li><b>App Access</b></li>
+                     <li><b>Standard and Custom Object Permissions</b></li>
+                     <li>Connected App Access</li>
+                     <li>Tab Settings</li>
+                     <li>Record Type Settings</li>
+                     <li>Administrative Permissions</li>
+                     <li>General User Permissions</li>
+                     <li>Session Settings</li>
+                     <li>Password Policies</li>
+                     <li>So much more</li>
+                  </ul>
+                  <img src={listPict}/>
+                  <img src={locationPict}/>
+               </div>
+               <!-- Modal/Popup Box LWC footer starts here -->
+               <footer class="slds-modal__footer">
+                   <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                   <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+               </footer>
+           </div>
+       </section>
+       <div class="slds-backdrop slds-backdrop_open"></div>
+   </template>
+</template>

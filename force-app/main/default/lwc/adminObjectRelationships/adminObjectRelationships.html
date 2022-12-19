@@ -1,0 +1,80 @@
+<template>
+    <!-- lightning button for open modal window -->
+    <lightning-button variant="Neutral"
+       label={buttonName}
+       title={buttonName}
+       onclick={openModal}
+       class="slds-m-left_x-small">
+    </lightning-button>
+ 
+    <!--Use template if:true to display/hide popup based on isModalOpen value--> 
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><a href={titleLink>{buttonName}</a></h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div>
+                        <h1 class="slds-text-heading_medium">One-Many vs Many-Many relationships</h1>
+                        <br>
+                        <hr>
+                        <h2 class="slds-text-heading_medium"><a href="https://www.youtube.com/watch?v=bxz3zdrD2dI">Parent-Child Relationship</a></h2>
+                        <br>
+                        <hr>
+                        <h2 class="slds-text-heading_medium"><a href="https://shreysharma.com/master-detail-relationship/#:~:text=Master%2DDetail%20Relationship%20in%20Salesforce%20is%20a%20parent%2Dchild%20relationship,detail%20records%20are%20also%20deleted.">Master-Detail</a></h2>
+
+                        <ul class="slds-list_dotted">
+                            <li>Master record gets deleted, then so does its related Detail record</li>
+                            <li>Has Rollup Summaries</li>
+                            <li>A Roll-up Summary field is available on the master side of a Master-Detail relationship. It allows administrators to aggregate data from related detail records (count them, sum a numeric value on them, etc.) in real time. Ability to have Roll-up Summary fields is the top reason why you’d consider a Master-Detail relationship.</li>
+                            <li><img src={pic0}/></li>
+                            <li>Master records transfers security to related detail record</li>
+                            <li>Required for many-many relationships in addition to junctions</li>
+                            <li>a single object can have a maximum of 2 master-detail relationships</li>
+                            <li>Details cannot have sharing rules, manual sharing, nor queues, because these require an "Owner field" which details cannot have.</li>
+                            <li>By default, Details cannot be reparented. This can be allowed by an Administrator.</li>
+                            <li>Standard objects cannot be a detail in this relationship.</li>
+                        </ul>
+                        <br>
+                        <h2 class="slds-text-heading_medium"><a href="https://www.salesforceben.com/what-is-a-junction-object-in-salesforce/">Junction Object</a></h2>
+                        <p>
+                        <b>A junction object is a term to describe an object that is designed to have two different parent objects (generally with Master-Detail relationships) which forms a many-to-many relationship</b>. There is nothing labeled “junction object” within Salesforce; it’s a definition applied to an object based on its function in the data model.
+                        </p>
+                        <p>
+                            A common use case is something like Classes in a school. The school will offer many Courses and have many Students. Each of those will be connected to many Classes.
+                        </p>
+                        <h2 class="slds-text-heading_medium"><a href="https://shreysharma.com/lookup-relationship/">Lookup-Relationship</a></h2>
+                        
+                        <ul class="slds-list_dotted">
+                            <li>a single object can have a maximum of 40 Lookup-Relationships</li>
+                            <li>Used for loosely coupled relationships</li>
+                        </ul>
+                        <hr>
+                        <h2 class="slds-text-heading_medium"><a href="https://help.salesforce.com/s/articleView?id=sf.relationships_considerations.htm&type=5">Things to consider</a></h2>
+
+                        <hr>
+                        <img src={pic1} />
+                        <img src={pic2} />
+                    </div>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+ </template>

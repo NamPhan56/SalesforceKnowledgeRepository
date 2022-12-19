@@ -1,0 +1,93 @@
+<template>
+    <!-- lightning button for open modal window -->
+    <lightning-button variant="Neutral"
+       label={buttonName}
+       title={buttonName}
+       onclick={openModal}
+       class="slds-m-left_x-small">
+    </lightning-button>
+ 
+    <!--Use template if:true to display/hide popup based on isModalOpen value--> 
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><a href={titleLink>{buttonName}</a></h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div>
+                        <h1><a href="https://www.kicksaw.com/blog/salesforce-101-roles-vs-profiles">Sharing</a></h1>
+                        <br>
+                        <hr>
+
+                        <b>Sharing Pyramid:</b>
+                        <br>
+                        <ul>
+                            <li><b>**Least Restrictive**</b></li>
+                            <li>Manual Sharing</li>
+                            <li>Sharing Rules</li>
+                            <li>Role Hierarhy</li>
+                            <li>Organization-Wide Defaults</li>
+                            <li><b>**Most restrictive**</b></li>
+                        </ul>
+                        <img src={pic0}/>
+                        
+                        <hr>
+                        <br>
+                        <h2><a href="https://help.salesforce.com/s/articleView?id=sf.granting_access_to_records.htm&type=5">Manual Sharing</a></h2>
+                        <p>
+                            Manual Sharing is a way to share one specific record with another user who otherwise would not have access due to the org-wide default or their particular role. Note that, in some cases, manually sharing a record will also share its related records.
+                        </p>
+                        <hr>
+                        <h2>Sharing Rules</h2>
+                        <p>
+                            Sharing rules act as a bypass of org-wide defaults and the role hierarchy. They offer ways to share records when certain users, roles, territories, or public groups still need access to records despite the org-wide defaults and role hierarchy configuration.
+                        </p>
+                        <hr>
+                        <h2>Role Hierarchy</h2>
+                        <p>
+                            Salesforce offers a user role hierarchy that you can use, along with sharing settings, to determine what levels of access users have to your Salesforce org’s data.
+                        </p>
+                            Roles, show where you stand relative to other users within the organization. For example, your boss, who is likely positioned higher in the role hierarchy than you are, might have the permission see their own forecast records as well as yours, but you can only see your own records (and of course, records of users below you in the role hierarchy).
+                        
+                        We mentioned earlier that when you are above someone in the role hierarchy, you can automatically see the records they can see. That’s generally true because SFDC sets object access to Grant Access Using Hierarchies, and for standard objects you cannot change that customization. You can, however, change that setting for custom objects. So, if you are above a user in the role hierarchy, you will be able to view all your subordinates’ records unless there’s a custom object your admin specifically set to to be inaccessible. 
+                        
+                        ![](https://trello.com/1/cards/635b6151fbb4d5060d6d96c5/attachments/6390153c17433500244f1dbc/download/image.png)
+                        
+                        ![](https://trello.com/1/cards/635b6151fbb4d5060d6d96c5/attachments/63901581f2ddf101f7549f53/download/image.png)
+                        ---
+                        #Organization-Wide Defaults
+                        Org-wide defaults are the most restrictive levels of access. When set to public read/write sharing, users have complete freedom to all records of the object for all users. Private sharing, though, restricts access to any records of the object unless the user explicitly owns the records. Note that that other sharing methods in the funnel come into play only if the Org Wide Default is not set to public read/write.
+                        
+                        If your org-wide defaults are public read/write, then every single user in the organization will be able to view and edit a given record. 
+                        
+                        ![Location](https://trello.com/1/cards/635b6151fbb4d5060d6d96c5/attachments/639014cc6307c7020469fb5f/download/image.png)
+                        
+                        ![Page](https://trello.com/1/cards/635b6151fbb4d5060d6d96c5/attachments/639014ee03780703973881fb/download/image.png)
+                        
+                        ![](https://trello.com/1/cards/635b6151fbb4d5060d6d96c5/attachments/63901998505b0403955f7f02/download/image.png)
+                        ---
+                    </div>
+                    <hr>
+                   <img src={pic1}/>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+ </template>

@@ -26,56 +26,23 @@
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                     <div>
-                        <h1 class="slds-text-heading_large"><a href="https://www.kicksaw.com/blog/salesforce-101-roles-vs-profiles">Sharing</a></h1>
-                        <br>
-                        <hr>
-
-                        <h2 class="slds-text-heading_medium">Sharing Pyramid:</h2>
-                        <ul>
-                            <li><b>**Least Restrictive**</b></li>
-                            <li>Manual Sharing</li>
-                            <li>Sharing Rules</li>
-                            <li>Role Hierarhy</li>
-                            <li>Organization-Wide Defaults</li>
-                            <li><b>**Most restrictive**</b></li>
-                        </ul>
-                        <img src={pic0}/>
-                        
-                        <hr>
-                        <h2 class="slds-text-heading_medium"><a href="https://help.salesforce.com/s/articleView?id=sf.granting_access_to_records.htm&type=5">Manual Sharing</a></h2>
                         <p>
-                            Manual Sharing is a way to share one specific record with another user who otherwise would not have access due to the org-wide default or their particular role. Note that, in some cases, manually sharing a record will also share its related records.
+                            <b>Permission sets extend users’ functional access without changing their profiles.</b> This means that permission sets are almost identical to a profile, but you can assign them to specific users.
+                        </p>
+                        <p>
+                            Let’s say you want two users to have API access, but they’re part of a profile that the entire sales department is using. In that case, you could create a permission set and assign it to those specific users. That way, the API access restrictions stay in place for everyone except these two assigned users.
+                        </p>
+                        <p>
+                            Permission sets will only expand functionality. They never restrict it. Therefore, they’re only applicable for when need to open access in order for users to do or see something.
+                        </p>
+                        <p>
+                            When it comes to record access, the main thing to remember is that a user can only see records if they have either profile or permission set access to the object that those records belong to.
                         </p>
                         <hr>
-                        <h2 class="slds-text-heading_medium">Sharing Rules</h2>
-                        <p>
-                            Sharing rules act as a bypass of org-wide defaults and the role hierarchy. They offer ways to share records when certain users, roles, territories, or public groups still need access to records despite the org-wide defaults and role hierarchy configuration.
-                        </p>
-                        <hr>
-                        <h2 class="slds-text-heading_medium">Role Hierarchy</h2>
-                        <p>
-                            Salesforce offers a user role hierarchy that you can use, along with sharing settings, to determine what levels of access users have to your Salesforce org’s data.
-                        </p>
-                        <p>
-                            Roles, show where you stand relative to other users within the organization. For example, your boss, who is likely positioned higher in the role hierarchy than you are, might have the permission see their own forecast records as well as yours, but you can only see your own records (and of course, records of users below you in the role hierarchy).
-                        </p>
-                        <p>
-                            We mentioned earlier that when you are above someone in the role hierarchy, you can automatically see the records they can see. That’s generally true because SFDC sets object access to Grant Access Using Hierarchies, and for standard objects you cannot change that customization. You can, however, change that setting for custom objects. So, if you are above a user in the role hierarchy, you will be able to view all your subordinates’ records unless there’s a custom object your admin specifically set to to be inaccessible. 
-                            <img src={pic4} />
-                            <img src={pic5} />
-                        </p>
-                        <hr>
-                        
-                        <h2 class="slds-text-heading_medium">Organization-Wide Defaults</h2>
-                        <p>
-                            Org-wide defaults are the most restrictive levels of access. When set to public read/write sharing, users have complete freedom to all records of the object for all users. Private sharing, though, restricts access to any records of the object unless the user explicitly owns the records. Note that that other sharing methods in the funnel come into play only if the Org Wide Default is not set to public read/write.
-                        </p>
-                        <p>
-                            If your org-wide defaults are public read/write, then every single user in the organization will be able to view and edit a given record. 
-                            <img src={pic2} />
-                            <img src={pic3} />
-                            <img src={pic6} />
-                        </p>
+                        <img src={pic0} />
+                        <img src={pic1} />
+                        <img src={pic2} />
+                        <img src={pic3} />
                     </div>
                 </div>
                 <!-- Modal/Popup Box LWC footer starts here -->

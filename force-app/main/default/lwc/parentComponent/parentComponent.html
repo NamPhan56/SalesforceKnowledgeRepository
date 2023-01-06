@@ -1,9 +1,18 @@
 <template>
-    <lightning-card title="Parent LWC">
+
+    <lightning-card title="Parent Component">
+
+        <!-- Parent to child action binding on button click -->
+        <lightning-button variant="brand" label="Send Message" title="Send Message" slot = "actions" onclick={parentToChildHandler}></lightning-button>
+
         <p class="slds-p-horizontal_small">
-            Message : {message}
+            Message from child : {message}
         </p>
-        
-        <c-child-lwc onsendmessage={parentHandler}></c-child-lwc>
+
+        <hr>
+        <!-- Pass action to child component via action binding -->
+        <c-child-component onsendmessage={childToParentHandler}></c-child-component>
+        <hr>
     </lightning-card>
+    
 </template>

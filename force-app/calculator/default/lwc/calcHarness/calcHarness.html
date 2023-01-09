@@ -1,0 +1,25 @@
+<template>
+
+    <lightning-textarea 
+        name="input"
+        required value="" 
+        placeholder="calculate" 
+        label="Maximum length of 140 characters" 
+        maxlength="140" 
+        message-when-too-long="Max length is 140 characters" 
+        message-when-value-missing="Must enter something." >
+    </lightning-textarea>
+
+    <lightning-textarea 
+        name="result" 
+        disabled value="" 
+        label="Disabled textarea field" >
+    </lightning-textarea>
+
+    <hr>
+    <br>
+    <div class="buttons">
+        <c-input-buttons></c-input-buttons>
+    </div>
+
+</template>

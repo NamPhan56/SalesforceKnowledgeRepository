@@ -1,0 +1,22 @@
+@import 'c/cssLibrary';
+
+/* * {
+    box-sizing: border-box;
+  } */
+
+.column {
+    float: left;
+    width: 50px;
+    margin: 10px;
+    /*height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+li {
+    padding-bottom: 20px;
+}
+  /* Clear floats after the columns */
+  /* .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  } */

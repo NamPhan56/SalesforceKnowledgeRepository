@@ -1,9 +1,8 @@
 {
   "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true
-    }
+    { "path": "force-app/main", "default": true},
+    { "path": "force-app/projectharness", "default": false},
+    { "path": "force-app/calculator", "default": false}
   ],
   "name": "SalesforceKnowledgeRepository",
   "namespace": "",

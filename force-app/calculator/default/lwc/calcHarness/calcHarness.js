@@ -13,8 +13,8 @@ export default class CalcHarness extends LightningElement {
         let regexPatter = "/^[\/\+\-\*]|[^\/\+\-\*\d]+|[(\/\+\-\*)]{2,}";
 
         let operations = new Set(["/","*","-","+"]);
+        this.result = eval(this.input);
 
-        
     }
 
     handleClear(e){
@@ -27,7 +27,6 @@ export default class CalcHarness extends LightningElement {
     }
 
     handleButtonPress(e){
-        //console.log("parent: " + e.detail);
         this.input += e.detail;
     }
 }

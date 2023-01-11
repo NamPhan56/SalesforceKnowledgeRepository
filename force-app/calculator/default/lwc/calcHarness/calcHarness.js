@@ -14,6 +14,7 @@ export default class CalcHarness extends LightningElement {
 
         let operations = new Set(["/","*","-","+"]);
 
+        
     }
 
     handleClear(e){

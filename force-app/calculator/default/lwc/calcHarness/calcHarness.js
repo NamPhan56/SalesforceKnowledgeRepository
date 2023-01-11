@@ -10,15 +10,9 @@ export default class CalcHarness extends LightningElement {
         //this.result = "result";
         let ret = 0;
         let arraystr;
-        
+        let regexPatter = "/^[\/\+\-\*]|[^\/\+\-\*\d]+|[(\/\+\-\*)]{2,}";
+
         let operations = new Set(["/","*","-","+"]);
-
-        //this.input = this.input.replace(" ", "");
-
-        // for(let i=0; i<this.input.length;i++){
-
-        // }
-        //console.log("input: " + this.input + "\n" + "result: " + this.result);
 
     }
 
@@ -27,7 +21,12 @@ export default class CalcHarness extends LightningElement {
         this.result = "";
     }
 
-    handleChange(e){
+    handleInputChange(e){
         this.input = e.detail.value;
+    }
+
+    handleButtonPress(e){
+        //console.log("parent: " + e.detail);
+        this.input += e.detail;
     }
 }

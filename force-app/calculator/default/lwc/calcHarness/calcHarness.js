@@ -6,15 +6,15 @@ export default class CalcHarness extends LightningElement {
     @track result = "result";
 
     calculate(e){
-        //this.input = this.template.querySelector('#input1').getAttribute("value");
-        //this.result = "result";
-        let ret = 0;
-        let arraystr;
-        let regexPatter = "/^[\/\+\-\*]|[^\/\+\-\*\d]+|[(\/\+\-\*)]{2,}";
 
-        let operations = new Set(["/","*","-","+"]);
-        this.result = eval(this.input);
-
+       let temp;
+        try{
+            temp = eval(this.input);
+            this.result = temp
+        }
+        catch(SyntaxError){
+            this.result = "There are errors in your formula.";
+        }
     }
 
     handleClear(e){

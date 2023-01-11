@@ -10,7 +10,13 @@ export default class CalcHarness extends LightningElement {
        let temp;
         try{
             temp = eval(this.input);
-            this.result = temp
+            if(temp === 0){
+                this.result = "0";
+            }
+            else{
+                this.result = temp;
+            }
+
         }
         catch(SyntaxError){
             this.result = "There are errors in your formula.";
@@ -28,5 +34,11 @@ export default class CalcHarness extends LightningElement {
 
     handleButtonPress(e){
         this.input += e.detail;
+    }
+
+    handleEnterPress(e){
+        if(e.key === "Enter"){
+            this.calculate();
+        }
     }
 }

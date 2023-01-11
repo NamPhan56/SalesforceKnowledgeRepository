@@ -1,8 +1,8 @@
 <template>
 
-    <lightning-textarea
+    <lightning-input
         id="input1" 
-        class="validate" 
+        type="text" 
         name="input" 
         value={input} 
         placeholder="enter formula" 
@@ -11,14 +11,15 @@
         message-when-pattern-mismatch="Please enter a valid formula"
         message-when-too-long="Max length is 140 characters" 
         onchange={handleInputChange}
+        onkeydown={handleEnterPress}
         >
-    </lightning-textarea>
+    </lightning-input>
 
     <lightning-textarea 
         id="result1" 
         name="result" 
         disabled value={result} 
-        label="Disabled textarea field"
+        label="Result"
         >
     </lightning-textarea>
 

@@ -16,7 +16,6 @@ export default class CalcHarness extends LightningElement {
             else{
                 this.result = temp;
             }
-
         }
         catch(SyntaxError){
             this.result = "There are errors in your formula.";

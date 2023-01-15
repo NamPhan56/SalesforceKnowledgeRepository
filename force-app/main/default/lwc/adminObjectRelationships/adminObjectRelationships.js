@@ -1,14 +1,21 @@
 import { LightningElement,track } from 'lwc';
-import PICTUREZIPLOC from '@salesforce/resourceUrl/AdminStandardObjectPic';
+import PICTUREZIPLOC from '@salesforce/resourceUrl/ObjectRelationships';
 
-export default class ModalPopupLWC extends LightningElement {
+export default class AdminObjectRelationships extends LightningElement {
+
     //Boolean tracked variable to indicate if modal is open or not default value is false as modal is closed when page is loaded 
     @track isModalOpen = false;
 
-    buttonName = 'Standard Objects'
+    buttonName = 'Object Relationships'
     titleLink = '';
-    pic0 = PICTUREZIPLOC + '/Properties.png';
-
+    pic0 = PICTUREZIPLOC + '/image.png';
+    pic1 = PICTUREZIPLOC + '/image (1).png';
+    pic2 = PICTUREZIPLOC + '/image (2).png';
+    // pic3 = PICTUREZIPLOC + '/image (3).png';
+    // pic4 = PICTUREZIPLOC + '/image (4).png';
+    // pic5 = PICTUREZIPLOC + '/image (5).png';
+    // pic6 = PICTUREZIPLOC + '/image (6).png';
+    
     openModal() {
         // to open modal set isModalOpen tarck value as true
         this.isModalOpen = true;

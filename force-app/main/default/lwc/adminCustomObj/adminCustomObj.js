@@ -7,8 +7,8 @@ export default class ModalPopupLWC extends LightningElement {
 
     buttonName = 'Custom Objects'
     titleLink = '';
-    pic1 = PICTUREZIPLOC + '/image.png';
-    pic2 = PICTUREZIPLOC + '/image (1).png';
+    pic0 = PICTUREZIPLOC + '/image.png';
+    pic1 = PICTUREZIPLOC + '/image (1).png';
 
     openModal() {
         // to open modal set isModalOpen tarck value as true

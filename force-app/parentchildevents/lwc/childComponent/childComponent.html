@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Child Component">
+        <!-- Child to Parent event dispatch on button click-->
+        <lightning-button variant="brand" label="Send Message" title="Send Message" slot = "actions" onclick={childHandler}></lightning-button>
+        <!-- Child to Parent event dispatch on button click-->
+
+        <p class="slds-p-horizontal_small">
+            Message from Parent Component : {message}
+        </p>
+    </lightning-card>
+</template>

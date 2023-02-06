@@ -1,0 +1,57 @@
+<template>
+    <!-- lightning button for open modal window -->
+    <lightning-button variant="Neutral"
+       label={buttonName}
+       title={buttonName}
+       onclick={openModal}
+       class="slds-m-left_x-small">
+    </lightning-button>
+ 
+    <!--Use template if:true to display/hide popup based on isModalOpen value--> 
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><a href={titleLink>{buttonName}</a></h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div>
+                        <p>
+                            <b>Permission sets extend users’ functional access without changing their profiles.</b> This means that permission sets are almost identical to a profile, but you can assign them to specific users.
+                        </p>
+                        <p>
+                            Let’s say you want two users to have API access, but they’re part of a profile that the entire sales department is using. In that case, you could create a permission set and assign it to those specific users. That way, the API access restrictions stay in place for everyone except these two assigned users.
+                        </p>
+                        <p>
+                            Permission sets will only expand functionality. They never restrict it. Therefore, they’re only applicable for when need to open access in order for users to do or see something.
+                        </p>
+                        <p>
+                            When it comes to record access, the main thing to remember is that a user can only see records if they have either profile or permission set access to the object that those records belong to.
+                        </p>
+                        <hr>
+                        <img src={pic0} />
+                        <img src={pic1} />
+                        <img src={pic2} />
+                        <img src={pic3} />
+                    </div>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+ </template>
